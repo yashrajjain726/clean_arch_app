@@ -8,8 +8,7 @@ class GetConcreteNumberTrivia {
   GetConcreteNumberTrivia({
     required this.repository,
   });
-  Future<Either<Failure, NumberTrivia>> execute({required int number}) async {
-    print('indixe use case');
+  Future<Either<Failure, NumberTrivia>?> call({required int number}) async {
     return await repository.getConcreteNumberTrivia(number);
   }
 }

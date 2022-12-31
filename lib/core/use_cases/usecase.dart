@@ -9,7 +9,7 @@ abstract class UseCase<Type, Params> {
 
 class Params extends Equatable {
   final int number;
-  Params({
+  const Params({
     required this.number,
   });
 
@@ -18,7 +18,7 @@ class Params extends Equatable {
 }
 
 class NoParams extends Equatable {
-  NoParams();
+  const NoParams();
 
   @override
   List<Object?> get props => [];

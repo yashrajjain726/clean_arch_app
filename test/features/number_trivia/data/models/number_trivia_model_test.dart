@@ -28,4 +28,15 @@ void main() {
       expect(result, equals(tNumberTriviaModel));
     });
   });
+
+  group('toJson ', () {
+    test('should return a jsonMap containing a proper data', () async {
+      final expectedMap = {
+        "text": "Test Text",
+        "number": 1,
+      };
+      final result = tNumberTriviaModel.toJson();
+      expect(result, expectedMap);
+    });
+  });
 }

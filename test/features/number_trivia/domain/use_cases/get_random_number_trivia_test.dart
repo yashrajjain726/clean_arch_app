@@ -1,7 +1,6 @@
 import 'package:clean_arch_app/core/use_cases/usecase.dart';
 import 'package:clean_arch_app/features/number_trivia/domain/entities/numer_trivia.dart';
 import 'package:clean_arch_app/features/number_trivia/domain/repositories/number_trivia_repository.dart';
-import 'package:clean_arch_app/features/number_trivia/domain/use_cases/get_concrete_number_trivia.dart';
 import 'package:clean_arch_app/features/number_trivia/domain/use_cases/get_random_number_trivia.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';

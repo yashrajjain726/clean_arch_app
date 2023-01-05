@@ -1,10 +1,10 @@
-import 'package:clean_arch_app/core/error/exceptions.dart';
-import 'package:clean_arch_app/features/number_trivia/data/models/number_trivia_model.dart';
+import '../../../../core/error/exceptions.dart';
+import '../models/number_trivia_model.dart';
 import 'package:dartz/dartz.dart';
 
-import 'package:clean_arch_app/core/network/network_info.dart';
-import 'package:clean_arch_app/features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
-import 'package:clean_arch_app/features/number_trivia/data/datasources/number_trivia_remote_data_source.dart';
+import '../../../../core/network/network_info.dart';
+import '../datasources/number_trivia_local_data_source.dart';
+import '../datasources/number_trivia_remote_data_source.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../domain/entities/numer_trivia.dart';

@@ -68,7 +68,7 @@ void main() {
           .add(GetTriviaForConcreteEvent(numberString: tNumberString));
 
       await untilCalled(
-          mockGetConcreteNumberTrivia!(Params(number: tNumberParsed)));
+          mockGetConcreteNumberTrivia(Params(number: tNumberParsed)));
 
       verify(mockGetConcreteNumberTrivia(Params(number: tNumberParsed)));
     });

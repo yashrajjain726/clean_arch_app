@@ -1,10 +1,11 @@
-import 'package:clean_arch_app/features/number_trivia/presentation/widgets/message_display.dart';
-import 'package:clean_arch_app/features/number_trivia/presentation/widgets/trivia_display.dart';
+import '../widgets/message_display.dart';
+import '../widgets/trivia_controls.dart';
+import '../widgets/trivia_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:clean_arch_app/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
-import 'package:clean_arch_app/injection_container.dart';
+import '../bloc/number_trivia_bloc.dart';
+import '../../../../injection_container.dart';
 
 import '../widgets/loading_widget.dart';
 
@@ -19,7 +20,7 @@ class NumberTriviaPage extends StatelessWidget {
           'Number Trivia',
         ),
       ),
-      body: buildBody(context),
+      body: SingleChildScrollView(child: buildBody(context)),
     );
   }
 
@@ -55,91 +56,5 @@ class NumberTriviaPage extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class TriviaControls extends StatefulWidget {
-  const TriviaControls({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<TriviaControls> createState() => _TriviaControlsState();
-}
-
-class _TriviaControlsState extends State<TriviaControls> {
-  late String inputString;
-  late TextEditingController controller;
-
-  @override
-  void initState() {
-    controller = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextField(
-          controller: controller,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Input a number',
-          ),
-          onChanged: (value) {
-            inputString = value;
-          },
-          onSubmitted: (_) {
-            dispatchConcrete();
-          },
-          keyboardType: TextInputType.number,
-        ),
-        const SizedBox(height: 10),
-        Row(
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  dispatchConcrete();
-                  controller.clear();
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                    Theme.of(context).colorScheme.secondary,
-                  ),
-                ),
-                child: const Text(
-                  'Search',
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  dispatchRandom();
-                },
-                child: const Text(
-                  'Get a random trivia',
-                ),
-              ),
-            )
-          ],
-        )
-      ],
-    );
-  }
-
-  void dispatchConcrete() {
-    BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForConcreteEvent(
-      numberString: inputString,
-    ));
-  }
-
-  void dispatchRandom() {
-    BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForRandomEvent());
   }
 }

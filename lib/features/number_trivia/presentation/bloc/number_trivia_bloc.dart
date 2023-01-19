@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
-import 'package:clean_arch_app/core/error/failures.dart';
-import 'package:clean_arch_app/core/use_cases/usecase.dart';
+import '../../../../core/error/failures.dart';
+import '../../../../core/use_cases/usecase.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:clean_arch_app/core/utils/input_converter.dart';
-import 'package:clean_arch_app/features/number_trivia/domain/use_cases/get_concrete_number_trivia.dart';
-import 'package:clean_arch_app/features/number_trivia/domain/use_cases/get_random_number_trivia.dart';
+import '../../../../core/utils/input_converter.dart';
+import '../../domain/use_cases/get_concrete_number_trivia.dart';
+import '../../domain/use_cases/get_random_number_trivia.dart';
 
 import '../../domain/entities/numer_trivia.dart';
 

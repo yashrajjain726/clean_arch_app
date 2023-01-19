@@ -1,6 +1,7 @@
-import 'package:clean_arch_app/features/number_trivia/presentation/pages/number_trivia_page.dart';
-import 'package:clean_arch_app/injection_container.dart' as dependencyInjection;
 import 'package:flutter/material.dart';
+
+import 'features/number_trivia/presentation/pages/number_trivia_page.dart';
+import 'injection_container.dart' as dependencyInjection;
 
 Future<void> main() async {
   await dependencyInjection.init();

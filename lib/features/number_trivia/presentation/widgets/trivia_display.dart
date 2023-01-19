@@ -1,4 +1,4 @@
-import 'package:clean_arch_app/features/number_trivia/domain/entities/numer_trivia.dart';
+import '../../domain/entities/numer_trivia.dart';
 import 'package:flutter/material.dart';
 
 class TriviaDisplay extends StatelessWidget {

@@ -1,3 +1,4 @@
+import 'package:clean_arch_app/features/number_trivia/presentation/pages/number_trivia_page.dart';
 import 'package:clean_arch_app/injection_container.dart' as dependencyInjection;
 import 'package:flutter/material.dart';
 
@@ -11,22 +12,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      title: 'Number Trivia',
+      theme: ThemeData(
+        primaryColor: Colors.green.shade800,
+        colorScheme:
+            ColorScheme.fromSwatch().copyWith(secondary: Colors.green.shade600),
+      ),
+      home: const NumberTriviaPage(),
     );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

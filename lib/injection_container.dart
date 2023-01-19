@@ -1,5 +1,9 @@
 import 'dart:io';
 
+import 'package:get_it/get_it.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'core/network/network_info.dart';
 import 'core/utils/input_converter.dart';
 import 'features/number_trivia/data/datasources/number_trivia_local_data_source.dart';
@@ -9,9 +13,6 @@ import 'features/number_trivia/domain/repositories/number_trivia_repository.dart
 import 'features/number_trivia/domain/use_cases/get_concrete_number_trivia.dart';
 import 'features/number_trivia/domain/use_cases/get_random_number_trivia.dart';
 import 'features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
-import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:get_it/get_it.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 final serviceLocator = GetIt.instance;
 Future<void> init() async {
@@ -63,7 +64,8 @@ Future<void> init() async {
     () => InputConverter(),
   );
   serviceLocator.registerLazySingleton<NetworkInfo>(
-    () => NetworkInfoImplementation(dataConnectionChecker: serviceLocator()),
+    () =>
+        NetworkInfoImplementation(internetConnectionChecker: serviceLocator()),
   );
 
   //! External
@@ -72,7 +74,7 @@ Future<void> init() async {
     () => sharedPreferences,
   );
   serviceLocator.registerLazySingleton(
-    () => DataConnectionChecker(),
+    () => InternetConnectionChecker(),
   );
   serviceLocator.registerLazySingleton(
     () => HttpClient(),
